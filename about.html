@@ -8,14 +8,194 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ── ABOUT PAGE STYLES ── */
+    .about-hero {
+      background: #011F5B;
+      padding: 5rem 0 4rem;
+      margin-bottom: 0;
+    }
+    .about-hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 6%;
+    }
+    .about-hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .about-hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 18px; height: 1px;
+      background: currentColor;
+    }
+    .about-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .about-hero p {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      max-width: 640px;
+    }
+
+    /* ── MISSION ── */
+    .about-mission {
+      background: #f4f7fa;
+      padding: 5rem 0;
+    }
+    .about-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 6%;
+    }
+    .about-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #011F5B;
+      opacity: 0.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .about-tag::before {
+      content: '';
+      display: inline-block;
+      width: 18px; height: 1px;
+      background: #011F5B;
+    }
+    .about-section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: #011F5B;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .about-body p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #444;
+      font-weight: 300;
+      margin-bottom: 1.1rem;
+      max-width: 720px;
+    }
+    .about-body p strong {
+      font-weight: 500;
+      color: #011F5B;
+    }
+
+    /* ── JISUNG CARD ── */
+    .about-director {
+      background: #fff;
+      padding: 5rem 0;
+    }
+    .director-card {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      background: #f4f7fa;
+      border-left: 3px solid #011F5B;
+      padding: 2.5rem;
+      max-width: 720px;
+    }
+    .director-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid #011F5B;
+    }
+    .director-info h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #011F5B;
+      margin-bottom: 0.25rem;
+    }
+    .director-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .director-info p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #444;
+      font-weight: 300;
+    }
+
+    /* ── CCAR SECTION ── */
+    .about-ccar {
+      background: #011F5B;
+      padding: 5rem 0;
+    }
+    .about-ccar .about-tag {
+      color: rgba(255,255,255,0.45);
+      opacity: 1;
+    }
+    .about-ccar .about-tag::before { background: rgba(255,255,255,0.45); }
+    .about-ccar .about-section-title { color: #fff; }
+    .about-ccar .about-body p { color: rgba(255,255,255,0.7); }
+    .about-ccar .about-body p strong { color: #fff; }
+
+    .ccar-quote {
+      border-left: 2px solid rgba(255,255,255,0.25);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+    .ccar-quote p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.05rem !important;
+      line-height: 1.7 !important;
+      color: rgba(255,255,255,0.8) !important;
+    }
+    .ccar-quote cite {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-style: normal;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .director-card { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <div class="lab-title">Climate Adaptation Fellowship (CAF)</div>
       <nav class="nav">
         <a href="home.html" class="nav-link">Home</a>
-        <!-- About Us with dropdown -->
         <div class="nav-dropdown">
           <a href="about.html" class="nav-link active">About Us</a>
           <div class="dropdown-menu">
@@ -27,9 +207,76 @@
       </nav>
     </div>
   </header>
-  <main class="container">
-    <h1 class="page-title">About Us</h1>
-    <p>The Climate Adaptation Fellowship brings together researchers.</p>
-  </main>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <p class="about-hero-tag">University of Pennsylvania · SP2</p>
+      <h1>About the Climate<br/>Adaptation Fellows</h1>
+      <p>
+        We are a research community at Penn's School of Social Policy &amp; Practice,
+        generating evidence and ideas to help communities, institutions, and economies
+        adapt to the climate shocks already underway.
+      </p>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section class="about-mission">
+    <div class="about-inner">
+      <p class="about-tag">Our Mission</p>
+      <h2 class="about-section-title">Why climate adaptation?</h2>
+      <div class="about-body">
+        <p>
+          Climate change encompasses more than catastrophic events like severe wildfires,
+          melting polar ice, or rising sea levels. It also affects <strong>health, productivity,
+          economic stability, and personal well-being</strong> — often in ways that are less visible
+          but no less consequential.
+        </p>
+        <p>
+          The devastating wildfires in Los Angeles, which affected people from all socioeconomic
+          backgrounds, are a reminder that nobody is immune. While reducing emissions is essential,
+          we are not nearly as prepared as we need to be for the climate shocks that are already in store.
+        </p>
+        <p>
+          CAF brings together researchers from economics, sociology, demography, and public policy
+          to produce rigorous, actionable evidence on how individuals, communities, and institutions
+          can better adapt to a changing climate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CCAR -->
+  <section class="about-ccar">
+    <div class="about-inner">
+      <p class="about-tag">Our Home</p>
+      <h2 class="about-section-title">The Center for Climate Adaptation and Resilience</h2>
+      <div class="about-body">
+        <p>
+          CAF operates within <strong>CCAR</strong> — the Center for Climate Adaptation and Resilience —
+          a key initiative at Penn's School of Social Policy &amp; Practice. CCAR advances SP2's mission
+          to drive social change through research and policy, focusing on two major areas of work.
+        </p>
+        <p>
+          The first is <strong>advancing the science of climate adaptation</strong> — digging deeper into
+          what makes a community, institution, or economy resilient to climate change. The second is
+          <strong>turning research into practical use</strong>, providing decision-makers with
+          evidence-based strategies for climate resilience.
+        </p>
+        <div class="ccar-quote">
+          <p>"Universities like Penn can — and must — generate actionable insights, research,
+          and leadership to meet this challenge."</p>
+          <cite>— Jisung Park, Director of CCAR</cite>
+        </div>
+        <p>
+          CCAR aligns with the University's larger focus on finding solutions for the most pressing
+          issues of our time, bridging climate, health, and democracy as part of Penn's strategic framework
+          <em>In Principle &amp; Practice</em>.
+        </p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
