@@ -801,7 +801,7 @@ body {
 
 @media (max-width: 600px) {
   .hero {
-    margin-top: 100px;
+    margin-top: 0; /* 改成0，body padding-top已经处理了 */
   }
 }
 @media (max-width: 600px) {
