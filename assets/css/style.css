@@ -774,6 +774,8 @@ body {
 /* ── DROPDOWN ── */
 .nav-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-menu {
@@ -785,7 +787,7 @@ body {
   min-width: 160px;
   padding: 8px 0;
   z-index: 200;
-  border-top: 2px solid #990000;
+  border-top: none;
 }
 
 .nav-dropdown:hover .dropdown-menu {
