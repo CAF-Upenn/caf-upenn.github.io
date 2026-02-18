@@ -809,3 +809,17 @@ body {
     padding-top: 84px;
   }
 }
+
+
+
+@media (max-width: 600px) {
+  .lab-title {
+    font-size: 15px !important;
+  }
+  .nav-link {
+    font-size: 12px !important;
+  }
+  .header-inner {
+    padding: 16px 20px !important;
+  }
+}
