@@ -801,18 +801,11 @@ body {
 
 @media (max-width: 600px) {
   .hero {
-    margin-top: 0; 
+    margin-top: 0;
   }
-}
-@media (max-width: 600px) {
   body {
     padding-top: 84px;
   }
-}
-
-
-
-@media (max-width: 600px) {
   .lab-title {
     font-size: 15px !important;
   }
@@ -822,4 +815,7 @@ body {
   .header-inner {
     padding: 20px 20px !important;
   }
+  .values-grid  { grid-template-columns: 1fr; }
+  .hero-text    { left: 5%; right: 5%; bottom: 8%; }
+  .hero-actions { flex-direction: column; }
 }
