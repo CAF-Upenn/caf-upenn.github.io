@@ -294,7 +294,7 @@
       </div>
 
       <div class="team-card" data-name="Lindsay Park" data-role="Fellow" data-img="assets/images/Lindsay Park.jpeg" data-bio="">
-        <img src="assets/images/Lindsay Park.jpeg" alt="Lindsay Park" class="avatar" style="object-position: center 15%;" />
+        <img src="assets/images/Lindsay Park.jpeg" alt="Lindsay Park" class="avatar" style="object-position: center 10%;" />
         <div class="card-name">Lindsay Park</div>
         <div class="card-role">Fellow</div>
         <div class="card-arrow">▼</div>
@@ -381,7 +381,7 @@
         // populate panel
         bioImg.src  = card.dataset.img;
         bioImg.alt  = card.dataset.name;
-        bioImg.style.objectPosition = card.dataset.name === 'Lindsay Park' ? 'center 15%' : 'center center';
+        bioImg.style.objectPosition = card.dataset.name === 'Lindsay Park' ? 'center 10%' : 'center center';
         bioName.textContent = card.dataset.name;
         bioRole.textContent = card.dataset.role;
         bioText.textContent = card.dataset.bio || 'Bio coming soon.';
