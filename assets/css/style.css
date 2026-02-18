@@ -216,8 +216,6 @@ hr {
   }
 }
 
-
-
 /* ============================================================
    HOME PAGE ADDITIONS — paste at the bottom of style.css
    ============================================================ */
@@ -226,22 +224,66 @@ body {
   font-family: 'Outfit', Arial, sans-serif;
 }
 
-/* ── HEADER: make fixed so it stays on top while scrolling ── */
+/* ── HEADER: override existing navy style ── */
 .site-header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   z-index: 100;
   pointer-events: none;
+  background-color: rgba(247, 244, 239, 0.96) !important; /* cream, not navy */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  box-shadow: none;
+  transition: box-shadow 0.3s;
 }
-.nav { pointer-events: auto; }
-.nav-link { pointer-events: auto; }
 
-/* ── HERO ── */
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;       /* put title and nav on same line */
+}
+
+.lab-title {
+  font-family: 'Lora', Georgia, serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  color: #1a2e1a !important;
+  margin-bottom: 0 !important;
+  letter-spacing: 0.01em;
+}
+
+.nav {
+  pointer-events: auto;
+  gap: 28px !important;
+}
+
+.nav-link {
+  color: #555 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border-bottom: 2px solid transparent !important;
+  transition: color 0.2s, border-color 0.2s !important;
+  padding-bottom: 4px !important;
+}
+.nav-link:hover {
+  color: #1a2e1a !important;
+  opacity: 1 !important;
+}
+.nav-link.active {
+  color: #2b6b30 !important;
+  border-bottom-color: #2b6b30 !important;
+}
+
+/* ── HERO: 50vh, shorter ── */
 .hero {
-  height: 100vh;
-  min-height: 520px;
-  margin-top: 80px; /* push below fixed header */
+  height: 50vh;
+  min-height: 340px;
+  margin-top: 61px; /* matches fixed header height */
 }
 
 .hero-image {
@@ -253,19 +295,17 @@ body {
   to   { transform: scale(1.06); }
 }
 
-/* dark gradient lift from bottom */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top,
-    rgba(5, 18, 8, 0.90) 0%,
-    rgba(5, 18, 8, 0.35) 45%,
+    rgba(5, 18, 8, 0.88) 0%,
+    rgba(5, 18, 8, 0.30) 50%,
     transparent 100%
   );
   z-index: 1;
 }
 
-/* reposition hero text: bottom-left instead of centered */
 .hero-text {
   top: auto;
   bottom: 10%;
@@ -284,17 +324,17 @@ body {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   animation: fadeUp 0.7s ease 0.2s both;
 }
 
 .hero-text h1 {
   font-family: 'Lora', Georgia, serif;
-  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.15;
   color: #fff;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   animation: fadeUp 0.8s ease 0.4s both;
 }
 .hero-text h1 em {
@@ -303,17 +343,17 @@ body {
 }
 
 .hero-text p {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 300;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 28px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.68);
+  margin-bottom: 20px;
   animation: fadeUp 0.8s ease 0.6s both;
 }
 
 .hero-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   animation: fadeUp 0.8s ease 0.8s both;
 }
@@ -322,10 +362,10 @@ body {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.05em;
-  padding: 12px 24px;
+  padding: 10px 20px;
   transition: transform 0.2s, background 0.2s, color 0.2s;
 }
 .hero-btn:hover { transform: translateY(-2px); }
@@ -346,7 +386,7 @@ body {
 
 /* ── INTRO STRIP ── */
 .intro-strip {
-  background: #0b2a4a;
+  background: #1a2e1a;
   padding: 3.5rem 6%;
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -529,8 +569,8 @@ body {
 }
 
 /* ── LATEST ── */
-.latest-section { background: #0b2a4a; }
-.latest-tag  { color: #7aaa7e !important; }
+.latest-section { background: #1a2e1a; }
+.latest-tag   { color: #7aaa7e !important; }
 .latest-title { color: #e8ede9 !important; }
 .latest-link  { color: #7aaa7e !important; border-color: rgba(122,170,126,0.35) !important; }
 .latest-link:hover { color: #b85c1a !important; border-color: #b85c1a !important; }
@@ -651,13 +691,14 @@ body {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .values-grid    { grid-template-columns: 1fr 1fr; }
-  .projects-grid  { grid-template-columns: 1fr; }
-  .latest-grid    { grid-template-columns: 1fr; }
-  .intro-strip    { grid-template-columns: 1fr; gap: 1rem; }
+  .values-grid   { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .latest-grid   { grid-template-columns: 1fr; }
+  .intro-strip   { grid-template-columns: 1fr; gap: 1rem; }
+  .header-inner  { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 @media (max-width: 600px) {
-  .values-grid    { grid-template-columns: 1fr; }
-  .hero-text      { left: 5%; right: 5%; bottom: 8%; }
-  .hero-actions   { flex-direction: column; }
+  .values-grid  { grid-template-columns: 1fr; }
+  .hero-text    { left: 5%; right: 5%; bottom: 8%; }
+  .hero-actions { flex-direction: column; }
 }
