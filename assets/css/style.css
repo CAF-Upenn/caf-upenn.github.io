@@ -799,4 +799,8 @@ body {
   color: #ffffff;
 }
 
-
+@media (max-width: 600px) {
+  .hero {
+    margin-top: 100px;
+  }
+}
