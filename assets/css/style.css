@@ -191,13 +191,13 @@ hr {
 }
 
 .hero-text h1 {
-  font-size: 36px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .hero-text p {
-  font-size: 18px;
+  font-size: 1.05rem;
   line-height: 1.4;
 }
 
@@ -436,7 +436,7 @@ body {
   color: #7abbe0;
 }
 .intro-strip-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.75;
   font-weight: 300;
   color: rgba(255,255,255,0.75);
@@ -476,7 +476,7 @@ body {
 
 .home-title {
   font-family: 'Lora', Georgia, serif;
-  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
   font-weight: 400;
   color: #011F5B;
   line-height: 1.2;
@@ -536,8 +536,8 @@ body {
   margin-bottom: 0.5rem;
 }
 .value-desc {
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.75;
   color: #555;
   font-weight: 300;
 }
@@ -589,8 +589,8 @@ body {
   margin-bottom: 0.85rem;
 }
 .project-desc {
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.75;
   color: #555;
   font-weight: 300;
   margin-bottom: 1.25rem;
@@ -639,7 +639,7 @@ body {
   margin-bottom: 1rem;
 }
 .latest-featured-body {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
   color: rgba(255,255,255,0.6);
   font-weight: 300;
@@ -665,7 +665,7 @@ body {
 .latest-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
 .latest-item:hover { padding-left: 8px; }
 .latest-item-title {
-  font-size: 14px;
+  font-size: 15px;
   color: rgba(255,255,255,0.72);
   line-height: 1.45;
 }
