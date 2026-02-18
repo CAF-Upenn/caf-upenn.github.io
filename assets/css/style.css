@@ -776,6 +776,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  height: 100%; /* 加这行 */
 }
 
 .dropdown-menu {
