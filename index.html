@@ -8,6 +8,174 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ── GRID LAYOUT ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* ── CARD ── */
+    .team-card {
+      cursor: pointer;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      background: #fff;
+      transition: box-shadow 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .team-card:hover {
+      box-shadow: 0 6px 24px rgba(1,31,91,0.1);
+      transform: translateY(-3px);
+    }
+    .team-card.active {
+      border-color: #011F5B;
+      box-shadow: 0 6px 24px rgba(1,31,91,0.15);
+    }
+
+    .team-card .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 0.9rem;
+      display: block;
+      border: 2px solid rgba(1,31,91,0.1);
+      transition: border-color 0.25s;
+    }
+    .team-card:hover .avatar,
+    .team-card.active .avatar {
+      border-color: #011F5B;
+    }
+
+    .team-card .card-name {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #011F5B;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .team-card .card-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    /* small arrow indicator */
+    .card-arrow {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.7rem;
+      color: #011F5B;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .team-card:hover .card-arrow { opacity: 0.5; }
+    .team-card.active .card-arrow { opacity: 1; }
+
+    /* ── BIO PANEL ── */
+    .bio-panel {
+      display: none;
+      grid-column: 1 / -1; /* span full width */
+      background: #f4f7fa;
+      border-left: 3px solid #011F5B;
+      padding: 2rem 2.5rem;
+      animation: slideDown 0.3s ease;
+    }
+    .bio-panel.visible { display: block; }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .bio-panel-inner {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      max-width: 800px;
+    }
+
+    .bio-panel img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid #011F5B;
+    }
+
+    .bio-panel-text h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #011F5B;
+      margin-bottom: 0.3rem;
+    }
+
+    .bio-panel-text .bio-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.9rem;
+    }
+
+    .bio-panel-text p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #444;
+      font-weight: 300;
+    }
+
+    .bio-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+      font-size: 1.1rem;
+      color: #aaa;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .bio-close:hover { color: #011F5B; }
+
+    /* ── SECTION LABEL ── */
+    .team-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #011F5B;
+      opacity: 0.5;
+      margin: 3rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .team-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(1,31,91,0.12);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 
 <body>
@@ -31,333 +199,240 @@
 
   <main class="container">
     <h1 class="page-title">Meet the Lab</h1>
-    <section class="people-list">
 
-      <!-- ── FACULTY / LEADERSHIP ── -->
+    <!-- ── LEADERSHIP ── -->
+    <div class="team-section-label">Faculty &amp; Leadership</div>
+    <div class="team-grid" id="grid-leadership">
 
-      <!-- Jisung Park — placeholder -->
-      <div class="person">
+      <div class="team-card" data-name="Jisung Park" data-role="Principal Investigator · SP2" data-img="assets/images/Jisung.jpg" data-bio="Placeholder bio for Jisung Park.">
         <img src="assets/images/Jisung.jpg" alt="Jisung Park" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Jisung Park</h2>
-          <p class="bio">Placeholder bio for Jisung Park.</p>
-        </div>
+        <div class="card-name">Jisung Park</div>
+        <div class="card-role">Principal Investigator · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Patrick Behrer -->
-      <div class="person">
+      <div class="team-card" data-name="Patrick Behrer" data-role="Economist · World Bank" data-img="assets/images/Behrer.jpg" data-bio="Patrick Behrer is an Economist in the Development Economics Research Group at The World Bank. His research focuses on the economic causes and consequences of air pollution and climate change around the world. He has a particular focus on how to encourage adaptation to climate change and air pollution exposure. He holds a PhD in Public Policy from Harvard University. Prior to joining The World Bank he was a post doc at Stanford's Center on Food Security and the Environment and a Fulbright Fellow in New Zealand.">
         <img src="assets/images/Behrer.jpg" alt="Patrick Behrer" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Patrick Behrer</h2>
-          <p class="bio">
-            Patrick Behrer is an Economist in the Development Economics Research Group
-            at The World Bank. His research focuses on the economic causes and consequences
-            of air pollution and climate change around the world. He has a particular focus
-            on how to encourage adaptation to climate change and air pollution exposure. He holds
-            a PhD in Public Policy from Harvard University. Prior to joining
-            The World Bank he was a post doc at Stanford's Center on
-            Food Security and the Environment and a Fulbright Fellow in New Zealand.
-          </p>
-        </div>
+        <div class="card-name">Patrick Behrer</div>
+        <div class="card-role">Economist · World Bank</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Paul Stainier -->
-      <div class="person">
+      <div class="team-card" data-name="Paul Stainier" data-role="Postdoctoral Fellow · SP2" data-img="assets/images/Paul Stainier.jpg" data-bio="Paul Stainier is an applied microeconomist and Postdoctoral Fellow in the School of Social Policy and Practice at the University of Pennsylvania. His research covers topics in environmental and labor economics, including the welfare costs of extreme weather events, the barriers to climate adaptation, and the determinants of worker compensation. He holds a PhD in Environment and Sustainability from the University of California, Los Angeles.">
         <img src="assets/images/Paul Stainier.jpg" alt="Paul Stainier" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Paul Stainier</h2>
-          <p class="bio">
-            Paul Stainier is an applied microeconomist and Postdoctoral Fellow in the School of Social Policy and Practice at the University of Pennsylvania.
-            His research covers topics in environmental and labor economics, including the welfare costs of extreme weather events,
-            the barriers to climate adaptation, and the determinants of worker compensation. He holds a PhD in Environment and Sustainability from the
-            University of California, Los Angeles. His personal webpage is paulstainier.com
-          </p>
-        </div>
+        <div class="card-name">Paul Stainier</div>
+        <div class="card-role">Postdoctoral Fellow · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Husel Husile -->
-      <div class="person">
+      <div class="team-card" data-name="Husel Husile" data-role="PhD Candidate · SP2" data-img="assets/images/Husel Husile.jpg" data-bio="Husel is a PhD candidate at the University of Pennsylvania School of Social Policy & Practice. His research focuses on climate adaptation and social resilience in the Global South. He studies how environmental shocks influence social cohesion and social welfare by using large scale panel data, demographic surveys, and satellite-based climate indicators.">
         <img src="assets/images/Husel Husile.jpg" alt="Husel Husile" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Husel Husile</h2>
-          <p class="bio">
-            Husel is a PhD candidate at the University of Pennsylvania School of Social Policy & Practice. His
-            research focuses on climate adaptation and social resilience in the Global South. He studies how
-            environmental shocks influence social cohesion and social welfare by using large scale panel data,
-            demographic surveys, and satellite-based climate indicators.
-          </p>
-        </div>
+        <div class="card-name">Husel Husile</div>
+        <div class="card-role">PhD Candidate · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Tingting Rui — placeholder -->
-      <div class="person">
+      <div class="team-card" data-name="Tingting Rui" data-role="Placeholder Role" data-img="assets/images/Tingting.jpg" data-bio="Placeholder bio for Tingting Rui.">
         <img src="assets/images/Tingting.jpg" alt="Tingting Rui" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Tingting Rui</h2>
-          <p class="bio">Placeholder bio for Tingting Rui.</p>
-        </div>
+        <div class="card-name">Tingting Rui</div>
+        <div class="card-role">Placeholder Role</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
+    </div>
 
-      <!-- ── OTHERS: ALPHABETICAL ── -->
+    <!-- ── FELLOWS ── -->
+    <div class="team-section-label">Fellows</div>
+    <div class="team-grid" id="grid-fellows">
 
-      <!-- Abishek Nippani -->
-      <div class="person">
+      <div class="team-card" data-name="Abishek Nippani" data-role="Doctoral Student · SP2" data-img="assets/images/Abishek.jpg" data-bio="Abishek is a first year doctoral student in the School of Social Policy and Practice. His research interests centre on urban poverty, with a particular focus on its linkage with rapid urbanisation and social disenfranchisement. Prior to joining SP2, he worked for four years as a research associate and coordinator in India on projects related to rural development, urban poverty, stigma, agency, community development and collective action. He holds a Master's in Public Policy from the National Law School of India University and a dual Bachelor's degree in Law and Business Administration from Alliance University.">
         <img src="assets/images/Abishek.jpg" alt="Abishek Nippani" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Abishek Nippani</h2>
-          <p class="bio">
-            Abishek is a first year doctoral student in the School of Social Policy and Practice. His
-            research interests centre on urban poverty, with a particular focus on its linkage with
-            rapid urbanisation and social disenfranchisement. Prior to joining SP2, he worked for
-            four years as a research associate and coordinator in India on projects related to rural development,
-            urban poverty, stigma, agency, community development and collective action. He holds a Master's in
-            Public Policy from the National Law School of India University and a dual Bachelor's degree in
-            Law and Business Administration from Alliance University.
-          </p>
-        </div>
+        <div class="card-name">Abishek Nippani</div>
+        <div class="card-role">Doctoral Student · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Angel Bao -->
-      <div class="person">
+      <div class="team-card" data-name="Angel Bao" data-role="Graduate Student · SP2" data-img="assets/images/Angel.JPG" data-bio="Hi! I am a graduate student in the Master of Social Policy and Data Analytics program at Penn's School of Social Policy and Practice. With experience in sustainability consulting and applied research, I'm interested in climate adaptation and how data informed policy can help communities and institutions navigate environmental risks and strengthen long term resilience.">
         <img src="assets/images/Angel.JPG" alt="Angel Bao" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Angel Bao</h2>
-          <p class="bio">
-            Hi! I am a graduate student in the Master of Social Policy and Data Analytics program at
-            Penn's School of Social Policy and Practice. With experience in sustainability consulting
-            and applied research, I'm interested in climate adaptation and how data informed policy
-            can help communities and institutions navigate environmental risks and strengthen long term resilience.
-          </p>
-        </div>
+        <div class="card-name">Angel Bao</div>
+        <div class="card-role">Graduate Student · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Angelo dos Santos -->
-      <div class="person">
+      <div class="team-card" data-name="Angelo dos Santos" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Angelo.jpg" data-bio="I am a Postdoctoral Fellow at the University of Pennsylvania and Scientific Production Coordinator for the DZC project. I am an applied microeconomist working on development and environmental economics. I received my PhD from the University of Houston. My research addresses critical issues such as deforestation and air pollution, aiming to develop effective policies to mitigate these challenges. I am a nature enthusiast and soccer lover.">
         <img src="assets/images/Angelo.jpg" alt="Angelo dos Santos" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Angelo dos Santos</h2>
-          <p class="bio">
-            I am a Postdoctoral Fellow at the University of Pennsylvania
-            and Scientific Production Coordinator for the DZC project.
-            I am an applied microeconomist working on development and environmental economics.
-            I received my PhD from the University of Houston. My research addresses critical
-            issues such as deforestation and air pollution, aiming to develop effective policies
-            to mitigate these challenges. I am a nature enthusiast and soccer lover.
-          </p>
-        </div>
+        <div class="card-name">Angelo dos Santos</div>
+        <div class="card-role">Postdoctoral Fellow · Penn</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Anicca Liu -->
-      <div class="person">
+      <div class="team-card" data-name="Anicca Liu" data-role="Fellow" data-img="assets/images/Anicca.jpg" data-bio="">
         <img src="assets/images/Anicca.jpg" alt="Anicca Liu" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Anicca Liu</h2>
-          <p class="bio"></p>
-        </div>
+        <div class="card-name">Anicca Liu</div>
+        <div class="card-role">Fellow</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Chris Wodicka -->
-      <div class="person">
+      <div class="team-card" data-name="Chris Wodicka" data-role="PhD Candidate · SP2" data-img="assets/images/Chris.jpg" data-bio="Chris Wodicka is a PhD candidate in the School of Social Policy and Practice. His current research interests include exploring questions around policy design and implementation for Medicaid, the Earned Income Tax Credit, and minimum wage. He is also interested in state and local public finance topics more generally, such as K-12 school funding systems.">
         <img src="assets/images/Chris.jpg" alt="Chris Wodicka" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Chris Wodicka</h2>
-          <p class="bio">
-            Chris Wodicka is a PhD candidate in the School of Social Policy and Practice.
-            His current research interests include exploring questions around
-            policy design and implementation for Medicaid, the Earned Income Tax Credit,
-            and minimum wage. He is also interested in state and local public finance topics
-            more generally, such as K-12 school funding systems.
-          </p>
-        </div>
+        <div class="card-name">Chris Wodicka</div>
+        <div class="card-role">PhD Candidate · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Ellery Spikes -->
-      <div class="person">
+      <div class="team-card" data-name="Ellery Spikes" data-role="Undergraduate Fellow" data-img="assets/images/Ellery Spikes.jpg" data-bio="Ellery is an undergraduate majoring in Politics, Policy & Economics with a focus on climate finance and sustainable agricultural systems. A former Kleinman Undergraduate and Climate Week Fellow, she is dedicated to advancing climate literacy through policy and economic frameworks.">
         <img src="assets/images/Ellery Spikes.jpg" alt="Ellery Spikes" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Ellery Spikes</h2>
-          <p class="bio">
-            Ellery is an undergraduate majoring in Politics, Policy & Economics with a focus on climate finance
-            and sustainable agricultural systems. A former Kleinman Undergraduate and Climate Week Fellow, she
-            is dedicated to advancing climate literacy through policy and economic frameworks.
-          </p>
-        </div>
+        <div class="card-name">Ellery Spikes</div>
+        <div class="card-role">Undergraduate Fellow</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Heather Do -->
-      <div class="person">
+      <div class="team-card" data-name="Heather Do" data-role="PhD Student · Penn GSE" data-img="assets/images/Heather.jpg" data-bio="Hang (Heather) Do is a Ph.D. student in the Human Development program at Penn GSE. Her main research interest focuses on the long term effects of childhood adversities on human development and protective processes that foster resilience in children and adolescents across global contexts. As a Climate Adaptation Fellow, she is interested in expanding her research to studying the effects of climate crises and natural disasters on child and adolescent development. Heather holds a B.A. in Psychology from Oberlin College and an M.Ed. in Human Development & Education from the Harvard Graduate School of Education.">
         <img src="assets/images/Heather.jpg" alt="Heather Do" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Heather Do</h2>
-          <p class="bio">
-            Hang (Heather) Do is a Ph.D. student in the Human Development program at Penn GSE. Her main
-            research interest focuses on the long term effects of childhood adversities on human development
-            and protective processes that foster resilience in children and adolescents across global contexts.
-            As a Climate Adaptation Fellow, she is interested in expanding her research to studying the
-            effects of climate crises and natural disasters on child and adolescent development. Heather holds a B.A.
-            in Psychology from Oberlin College and an M.Ed. in Human Development & Education from the
-            Harvard Graduate School of Education.
-          </p>
-        </div>
+        <div class="card-name">Heather Do</div>
+        <div class="card-role">PhD Student · Penn GSE</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Hwiyoung Lee -->
-      <div class="person">
+      <div class="team-card" data-name="Hwiyoung Lee" data-role="PhD Student · SP2" data-img="assets/images/Hwiyoung.jpg" data-bio="Hwiyoung Lee is a PhD student at the University of Pennsylvania's School of Social Policy & Practice and an Institute of Education Sciences Fellow. He is interested in how climate change may reshape social life and social engagement of individuals.">
         <img src="assets/images/Hwiyoung.jpg" alt="Hwiyoung Lee" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Hwiyoung Lee</h2>
-          <p class="bio">
-            Hwiyoung Lee is a PhD student at the University of Pennsylvania's School of Social Policy & Practice
-            and an Institute of Education Sciences Fellow. He is interested in how climate change may
-            reshape social life and social engagement of individuals.
-          </p>
-        </div>
+        <div class="card-name">Hwiyoung Lee</div>
+        <div class="card-role">PhD Student · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Lindsay Park -->
-      <div class="person">
+      <div class="team-card" data-name="Lindsay Park" data-role="Fellow" data-img="assets/images/Lindsay Park.jpeg" data-bio="">
         <img src="assets/images/Lindsay Park.jpeg" alt="Lindsay Park" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Lindsay Park</h2>
-          <p class="bio"></p>
-        </div>
+        <div class="card-name">Lindsay Park</div>
+        <div class="card-role">Fellow</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Ljuben Atov -->
-      <div class="person">
+      <div class="team-card" data-name="Ljuben Atov" data-role="Undergraduate Fellow" data-img="assets/images/Ljuben.JPG" data-bio="Hi! My name is Ljuben, and I am a senior from Skopje, North Macedonia. I am interested in learning about the effects of air pollution on children's development, different adaptation strategies countries put in place, and climate change outcomes in low income countries.">
         <img src="assets/images/Ljuben.JPG" alt="Ljuben Atov" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Ljuben Atov</h2>
-          <p class="bio">
-            Hi! My name is Ljuben, and I am a senior from Skopje, North Macedonia. I am interested in
-            learning about the effects of air pollution on children's development, different adaptation
-            strategies countries put in place, and climate change outcomes in low income countries.
-          </p>
-        </div>
+        <div class="card-name">Ljuben Atov</div>
+        <div class="card-role">Undergraduate Fellow</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Nazar Khalid -->
-      <div class="person">
+      <div class="team-card" data-name="Nazar Khalid" data-role="PhD Candidate · Sociology" data-img="assets/images/Nazar Khalid.JPG" data-bio="Nazar is a Ph.D. candidate in Demography and Sociology at the University of Pennsylvania. His research examines how climatic shocks and large-scale development policies interact with entrenched hierarchies of caste, class, religion, and gender to shape children's education and health in rural India and South Asia. He uses demographic methods, geospatial analysis, and survey-satellite data linkage alongside qualitative fieldwork in flood- and heat-affected communities. He was awarded the Penn Presidential Fellowship (2021–2024) and the Judith Rodin Fellowship (2020–2021). His work has been published in RSF, Economics of Education Review, World Development, and other journals.">
         <img src="assets/images/Nazar Khalid.JPG" alt="Nazar Khalid" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Nazar Khalid</h2>
-          <p class="bio">
-            Nazar is a Ph.D. candidate in Demography and Sociology at the University of Pennsylvania. His
-            research examines how climatic shocks and large-scale development policies interact with entrenched
-            hierarchies of caste, class, religion, and gender to shape children's education and health in rural
-            India and South Asia. He uses demographic methods, geospatial analysis, and survey-satellite data
-            linkage alongside qualitative fieldwork in flood- and heat-affected communities. He was awarded the
-            Penn Presidential Fellowship (2021–2024) and the Judith Rodin Fellowship (2020–2021). His work has
-            been published in RSF, Economics of Education Review, World Development, and other journals.
-          </p>
-        </div>
+        <div class="card-name">Nazar Khalid</div>
+        <div class="card-role">PhD Candidate · Sociology</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Rebecca Pepe -->
-      <div class="person">
+      <div class="team-card" data-name="Rebecca Pepe" data-role="PhD Candidate · SP2" data-img="assets/images/Rebecca.jpg" data-bio="Rebecca is a PhD Candidate in the School of Social Policy and Practice. Her research explores how housing insecurity and the food water energy nexus shape health and well being. As a Climate Adaptation Fellow, Rebecca examines the impact of extreme weather events and the role of forecasting on mitigation efforts among incarcerated populations. Her dissertation focuses on the health effects of water utility disconnections and how to reduce administrative burdens to increase access to water affordability programs. She holds an MPH from the Yale School of Public Health, and a BA in Psychology and BS in Biological Anthropology from the State University of New York at Binghamton.">
         <img src="assets/images/Rebecca.jpg" alt="Rebecca Pepe" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Rebecca Pepe</h2>
-          <p class="bio">
-            Rebecca is a PhD Candidate in the School of Social Policy and Practice. Her research explores how
-            housing insecurity and the food water energy nexus shape health and well being. As a Climate Adaptation Fellow,
-            Rebecca examines the impact of extreme weather events and the role of forecasting on mitigation efforts among incarcerated populations.
-            Her dissertation focuses on the health effects of water utility disconnections and how to
-            reduce administrative burdens to increase access to water affordability programs. She holds an MPH from the Yale School of Public Health, and a
-            BA in Psychology and BS in Biological Anthropology from the State University of New York at Binghamton.
-          </p>
-        </div>
+        <div class="card-name">Rebecca Pepe</div>
+        <div class="card-role">PhD Candidate · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Sebastian Prandoni -->
-      <div class="person">
+      <div class="team-card" data-name="Sebastian Prandoni" data-role="PhD Student · SP2" data-img="assets/images/Sebastian.jpeg" data-bio="Originally from Argentina, I am a second-year student in the PhD in Social Welfare and Climate Action Fellows program at the University of Pennsylvania School of Social Policy and Practice. My doctoral advisor is Dr. Amy Castro, co-director of the Center for Guaranteed Income Research, where I am a research assistant. Grounded in political ecology, my research examines the uneven geographies of global energy transitions and extractive processes across space and time.">
         <img src="assets/images/Sebastian.jpeg" alt="Sebastian Prandoni" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Sebastian Prandoni</h2>
-          <p class="bio">
-            Originally from Argentina, I am a second-year student in the PhD in Social Welfare and Climate Action Fellows program
-            at the University of Pennsylvania School of Social Policy and Practice. My doctoral advisor is Dr. Amy Castro,
-            co-director of the Center for Guaranteed Income Research, where I am a research assistant. Grounded in political ecology,
-            my research examines the uneven geographies of global energy transitions and extractive processes across space and time.
-          </p>
-        </div>
+        <div class="card-name">Sebastian Prandoni</div>
+        <div class="card-role">PhD Student · SP2</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Yabo Vidogbena -->
-      <div class="person">
+      <div class="team-card" data-name="Yabo Vidogbena" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Yabo.JPG" data-bio="Yabo is a development economist interested in human capital formation and structural change in developing countries. In her recent research she investigated how climate change affects human capital formation, specifically how heat impacts the learning and executive functioning of children, and the role of trade in structural change in Sub Saharan African countries. She is a Postdoctoral Fellow at the Population Studies Center and an instructor at the Economics department of the University of Pennsylvania. She obtained her Ph.D. in Economics from the University of Houston in May 2025.">
         <img src="assets/images/Yabo.JPG" alt="Yabo Vidogbena" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Yabo Vidogbena</h2>
-          <p class="bio">
-            Yabo is a development economist interested in human capital formation and structural change in developing countries.
-            In her recent research she investigated how climate change affects human capital formation, specifically how heat
-            impacts the learning and executive functioning of children, and the role of trade in structural change in
-            Sub Saharan African countries. She is a Postdoctoral Fellow at the Population Studies Center and an instructor
-            at the Economics department of the University of Pennsylvania. She obtained her Ph.D. in Economics from the University of Houston in May 2025.
-          </p>
-        </div>
+        <div class="card-name">Yabo Vidogbena</div>
+        <div class="card-role">Postdoctoral Fellow · Penn</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
-
-      <!-- Yujie Zhang -->
-      <div class="person">
+      <div class="team-card" data-name="Yujie Zhang" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Yujie.jpg" data-bio="Yujie Zhang is a Postdoctoral Research Fellow at the Population Studies Center at the University of Pennsylvania. She received her Ph.D. in Economics from the University of Houston in summer 2025. Her research interests lie in the fields of Development Economics, using Applied Microeconomics to explore the intersections between climate change, human capital, and social inequality through transnational comparative studies and large-scale data analysis. Her recent paper investigates the long-term effects of natural disasters on education, health, and labor outcomes, highlighting disparities by gender and socio-economic status.">
         <img src="assets/images/Yujie.jpg" alt="Yujie Zhang" class="avatar" />
-        <div class="person-info">
-          <h2 class="name">Yujie Zhang</h2>
-          <p class="bio">
-            Yujie Zhang is a Postdoctoral Research Fellow at the Population Studies Center at the University of Pennsylvania.
-            She received her Ph.D. in Economics from the University of Houston in summer 2025. Her research interests lie in
-            the fields of Development Economics, using Applied Microeconomics to explore the intersections between climate change,
-            human capital, and social inequality through transnational comparative studies and large-scale data analysis.
-            Her recent paper investigates the long-term effects of natural disasters on education, health, and labor outcomes,
-            highlighting disparities by gender and socio-economic status. She also works with the Asian Development Bank on heat stress,
-            pollution risk, and social welfare in low- and middle-income countries.
-          </p>
-        </div>
+        <div class="card-name">Yujie Zhang</div>
+        <div class="card-role">Postdoctoral Fellow · Penn</div>
+        <div class="card-arrow">▼</div>
       </div>
 
-      <hr />
+    </div>
 
-    </section>
+    <!-- hidden bio panel, moved into grid by JS -->
+    <div class="bio-panel" id="bio-panel">
+      <span class="bio-close" id="bio-close">✕</span>
+      <div class="bio-panel-inner">
+        <img id="bio-img" src="" alt="" />
+        <div class="bio-panel-text">
+          <h3 id="bio-name"></h3>
+          <div class="bio-role" id="bio-role"></div>
+          <p id="bio-text"></p>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    const panel = document.getElementById('bio-panel');
+    const bioImg = document.getElementById('bio-img');
+    const bioName = document.getElementById('bio-name');
+    const bioRole = document.getElementById('bio-role');
+    const bioText = document.getElementById('bio-text');
+    const bioClose = document.getElementById('bio-close');
+
+    let activeCard = null;
+
+    document.querySelectorAll('.team-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const grid = card.closest('.team-grid');
+
+        // clicking same card = close
+        if (activeCard === card) {
+          closePanel();
+          return;
+        }
+
+        // populate panel
+        bioImg.src  = card.dataset.img;
+        bioImg.alt  = card.dataset.name;
+        bioName.textContent = card.dataset.name;
+        bioRole.textContent = card.dataset.role;
+        bioText.textContent = card.dataset.bio || 'Bio coming soon.';
+
+        // move panel after clicked card's row
+        // figure out which row the card is in
+        const cards = [...grid.querySelectorAll('.team-card')];
+        const cols = getComputedColumns(grid);
+        const idx = cards.indexOf(card);
+        const rowEnd = Math.min(Math.ceil((idx + 1) / cols) * cols, cards.length);
+        const afterCard = cards[rowEnd - 1];
+
+        // insert panel after that card (or append)
+        if (afterCard && afterCard.nextSibling) {
+          grid.insertBefore(panel, afterCard.nextSibling);
+        } else {
+          grid.appendChild(panel);
+        }
+
+        // show
+        panel.classList.add('visible');
+        if (activeCard) activeCard.classList.remove('active');
+        card.classList.add('active');
+        activeCard = card;
+
+        // smooth scroll
+        setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      });
+    });
+
+    bioClose.addEventListener('click', closePanel);
+
+    function closePanel() {
+      panel.classList.remove('visible');
+      if (activeCard) activeCard.classList.remove('active');
+      activeCard = null;
+    }
+
+    function getComputedColumns(grid) {
+      const style = window.getComputedStyle(grid);
+      return style.gridTemplateColumns.split(' ').length;
+    }
+  </script>
+
 </body>
 </html>
