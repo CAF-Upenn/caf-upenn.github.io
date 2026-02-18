@@ -767,3 +767,6 @@ body {
   max-width: 740px;
   margin-bottom: 1rem;
 }
+.container {
+  padding-top: 80px;
+}
