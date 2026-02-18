@@ -13,8 +13,9 @@
     .contact-hero {
       background: #011F5B;
       padding: 5rem 0 4rem;
-      margin-top: 90px;
+      margin-top: 0; 
     }
+    ::placeholder { color: transparent; }
     .contact-hero-inner {
       max-width: 800px;
       margin: 0 auto;
@@ -235,7 +236,7 @@
       <!-- Right: form -->
       <div class="contact-form-block">
         <h2>Send a message</h2>
-        <form action="mailto:husel@upenn.edu" method="post" enctype="text/plain">
+        <form action="https://formspree.io/f/meelzoea" method="POST">
           <div class="form-group">
             <label>Your name</label>
             <input type="text" name="name" placeholder="Jane Smith" />
