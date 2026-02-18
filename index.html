@@ -381,7 +381,10 @@
         // populate panel
         bioImg.src  = card.dataset.img;
         bioImg.alt  = card.dataset.name;
-        bioImg.style.objectPosition = card.dataset.name === 'Lindsay Park' ? 'center 10%' : 'center center';
+        bioImg.style.objectPosition = card.dataset.name === 'Lindsay Park' ? 'center 10%' 
+          : card.dataset.name === 'Husel Husile' ? 'center 45%' 
+          : card.dataset.name === 'Nazar Khalid' ? 'center 45%'
+          ：'center center';
         bioName.textContent = card.dataset.name;
         bioRole.textContent = card.dataset.role;
         bioText.textContent = card.dataset.bio || 'Bio coming soon.';
