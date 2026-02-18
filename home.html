@@ -1,212 +1,524 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
+/* ============================================================
+   HOME PAGE ADDITIONS — paste at the bottom of style.css
+   ============================================================ */
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="lab-title">Climate Adaptation Fellowship (CAF)</div>
-      <nav class="nav">
-        <a href="home.html" class="nav-link active">Home</a>
-        <a href="about.html" class="nav-link">About Us</a>
-        <a href="index.html" class="nav-link">Meet the Lab</a>
-        <a href="contact.html" class="nav-link">Contact Us</a>
-      </nav>
-    </div>
-  </header>
+body {
+  font-family: 'Outfit', Arial, sans-serif;
+}
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="assets/images/homepage_placeholder.jpg" alt="Hero image" class="hero-image" />
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-      <span class="hero-eyebrow">Example eyebrow text</span>
-      <h1>Example Hero Title<br/><em>Example italic</em></h1>
-      <p>Example subtitle. Lorem ipsum dolor sit amet.</p>
-      <div class="hero-actions">
-        <a href="#" class="hero-btn hero-btn--light">Example CTA</a>
-        <a href="#" class="hero-btn hero-btn--outline">Example Link →</a>
-      </div>
-    </div>
-  </section>
+/* ── HEADER: keep navy, make taller and more prominent ── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #0b2a4a !important;
+  pointer-events: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
 
-  <!-- INTRO STRIP -->
-  <div class="intro-strip reveal">
-    <div class="intro-strip-label">Example Label</div>
-    <p class="intro-strip-text">
-      Example intro text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      <strong>Example bold phrase.</strong> More example text here.
-    </p>
-  </div>
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
 
-  <!-- VALUES -->
-  <section class="home-section values-section">
-    <div class="home-section-inner">
-      <div class="home-section-header">
-        <div>
-          <p class="home-tag">Example Tag</p>
-          <h2 class="home-title">Example Section Title</h2>
-        </div>
-      </div>
-      <div class="values-grid">
-        <div class="value-card reveal">
-          <div class="value-num">01</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">02</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">03</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">04</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.lab-title {
+  font-family: 'Lora', Georgia, serif !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-bottom: 0 !important;
+  letter-spacing: 0.01em;
+}
 
-  <!-- PROJECTS -->
-  <section class="home-section projects-section">
-    <div class="home-section-inner">
-      <div class="home-section-header reveal">
-        <div>
-          <p class="home-tag">Example Tag</p>
-          <h2 class="home-title">Example Section Title</h2>
-        </div>
-        <a href="#" class="home-section-link">View all →</a>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <p class="project-region">Example Region</p>
-          <h3 class="project-title">Example Project Title</h3>
-          <p class="project-desc">Example project description. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-          <div class="project-tags">
-            <span class="proj-tag">Tag One</span>
-            <span class="proj-tag">Tag Two</span>
-            <span class="proj-tag">Tag Three</span>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <p class="project-region">Example Region</p>
-          <h3 class="project-title">Example Project Title</h3>
-          <p class="project-desc">Example project description. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-          <div class="project-tags">
-            <span class="proj-tag">Tag One</span>
-            <span class="proj-tag">Tag Two</span>
-            <span class="proj-tag">Tag Three</span>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <p class="project-region">Example Region</p>
-          <h3 class="project-title">Example Project Title</h3>
-          <p class="project-desc">Example project description. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-          <div class="project-tags">
-            <span class="proj-tag">Tag One</span>
-            <span class="proj-tag">Tag Two</span>
-            <span class="proj-tag">Tag Three</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+.nav {
+  pointer-events: auto;
+  gap: 32px !important;
+}
 
-  <!-- THE LATEST -->
-  <section class="home-section latest-section">
-    <div class="home-section-inner">
-      <div class="home-section-header reveal">
-        <div>
-          <p class="home-tag latest-tag">Example Tag</p>
-          <h2 class="home-title latest-title">Example Section Title</h2>
-        </div>
-        <a href="#" class="home-section-link latest-link">See all →</a>
-      </div>
-      <div class="latest-grid">
-        <div class="latest-featured reveal">
-          <p class="latest-date">2025 · Example</p>
-          <h3 class="latest-featured-title">Example featured news headline goes here</h3>
-          <p class="latest-featured-body">Example body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a href="#" class="latest-read-more">Read more →</a>
-        </div>
-        <div class="latest-items reveal">
-          <div class="latest-item">
-            <p class="latest-date">Example Date</p>
-            <p class="latest-item-title">Example news item headline</p>
-          </div>
-          <div class="latest-item">
-            <p class="latest-date">Example Date</p>
-            <p class="latest-item-title">Example news item headline</p>
-          </div>
-          <div class="latest-item">
-            <p class="latest-date">Example Date</p>
-            <p class="latest-item-title">Example news item headline</p>
-          </div>
-          <div class="latest-item">
-            <p class="latest-date">Example Date</p>
-            <p class="latest-item-title">Example news item headline</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+.nav-link {
+  color: rgba(255,255,255,0.75) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border-bottom: 2px solid transparent !important;
+  padding-bottom: 4px !important;
+  transition: color 0.2s, border-color 0.2s !important;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+.nav-link.active {
+  color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+}
 
-  <!-- CTA -->
-  <section class="home-section cta-section">
-    <div class="home-section-inner cta-inner reveal">
-      <p class="home-tag" style="justify-content:center;">Example Tag</p>
-      <h2 class="home-title cta-title">Example CTA headline?</h2>
-      <p class="cta-sub">Example supporting text. Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-      <a href="contact.html" class="hero-btn hero-btn--dark">Example Button →</a>
-    </div>
-  </section>
+/* ── HERO SLIDESHOW ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 38vh;
+  min-height: 260px;
+  overflow: hidden;
+  margin-top: 68px; /* matches fixed header height */
+}
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">Climate Adaptation Fellows</div>
-      <div class="footer-links">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html">Team</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-copy">© 2026 · University of Pennsylvania SP2 · CCAR</div>
-    </div>
-  </footer>
+/* slides: stacked, crossfade */
+.slideshow {
+  position: absolute;
+  inset: 0;
+}
 
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 90);
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    revealEls.forEach(el => io.observe(el));
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  filter: brightness(0.50) saturate(0.65);
+}
 
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-      header.style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.25)' : 'none';
-    });
-  </script>
+.slide.active {
+  opacity: 1;
+}
 
-</body>
-</html>
+/* dark gradient overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(5, 18, 8, 0.88) 0%,
+    rgba(5, 18, 8, 0.30) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* text: bottom-left */
+.hero-text {
+  position: absolute;
+  top: auto;
+  bottom: 12%;
+  left: 6%;
+  right: auto;
+  transform: none;
+  text-align: left;
+  max-width: 680px;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+  animation: fadeUp 0.7s ease 0.2s both;
+}
+
+.hero-text h1 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 10px;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.hero-text h1 em {
+  font-style: italic;
+  color: #93c47d;
+}
+
+.hero-text p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.68);
+  margin-bottom: 18px;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.8s both;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 9px 18px;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+.hero-btn:hover { transform: translateY(-2px); }
+
+.hero-btn--light   { background: #fff; color: #0b2a4a; }
+.hero-btn--light:hover { background: #e8f0f8; }
+
+.hero-btn--outline { border: 1px solid rgba(255,255,255,0.45); color: #fff; }
+.hero-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+.hero-btn--dark { background: #0b2a4a; color: #fff; }
+.hero-btn--dark:hover { background: #0d3860; }
+
+/* slideshow dots */
+.slide-dots {
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.dot.active { background: #ffffff; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── INTRO STRIP ── */
+.intro-strip {
+  background: #0b2a4a;
+  padding: 3rem 6%;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.intro-strip-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7abbe0;
+}
+.intro-strip-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+}
+.intro-strip-text strong { font-weight: 500; color: #fff; }
+
+/* ── SHARED SECTION ── */
+.home-section { padding: 6rem 0; }
+.home-section-inner { max-width: 1100px; margin: 0 auto; padding: 0 6%; }
+
+.home-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.75rem;
+}
+
+.home-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0b2a4a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+.home-tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px; height: 1px;
+  background: currentColor;
+}
+
+.home-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 400;
+  color: #0b2a4a;
+  line-height: 1.2;
+}
+
+.home-section-link {
+  font-size: 13px;
+  color: #0b2a4a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(11,42,74,0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.home-section-link:hover { opacity: 0.7; }
+
+/* ── VALUES ── */
+.values-section { background: #ffffff; }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(0,0,0,0.09);
+}
+
+.value-card {
+  background: #fff;
+  padding: 2.25rem 1.75rem;
+  position: relative;
+  transition: background 0.3s;
+}
+.value-card:hover { background: #f0f4f8; }
+.value-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: #0b2a4a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.value-card:hover::after { transform: scaleX(1); }
+
+.value-num {
+  font-family: 'Lora', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: rgba(11,42,74,0.08);
+  line-height: 1;
+  margin-bottom: 0.9rem;
+}
+.value-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0b2a4a;
+  margin-bottom: 0.5rem;
+}
+.value-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #555;
+  font-weight: 300;
+}
+
+/* ── PROJECTS ── */
+.projects-section { background: #f4f7fa; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(0,0,0,0.09);
+}
+
+.project-card {
+  background: #f4f7fa;
+  padding: 2.25rem;
+  position: relative;
+  transition: background 0.3s;
+}
+.project-card:hover { background: #fff; }
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: #0b2a4a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.project-card:hover::before { transform: scaleX(1); }
+
+.project-region {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0b2a4a;
+  opacity: 0.6;
+  margin-bottom: 0.85rem;
+}
+.project-title {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #0b2a4a;
+  margin-bottom: 0.85rem;
+}
+.project-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #555;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.proj-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 1px solid rgba(11,42,74,0.2);
+  color: #0b2a4a;
+  opacity: 0.7;
+}
+
+/* ── LATEST ── */
+.latest-section { background: #0b2a4a; }
+.latest-tag   { color: rgba(255,255,255,0.5) !important; opacity: 1 !important; }
+.latest-title { color: #ffffff !important; }
+.latest-link  { color: rgba(255,255,255,0.6) !important; border-color: rgba(255,255,255,0.2) !important; }
+.latest-link:hover { color: #fff !important; border-color: #fff !important; }
+
+.latest-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.5rem;
+}
+
+.latest-featured { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 2rem; }
+
+.latest-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.75rem;
+}
+.latest-featured-title {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.latest-featured-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.latest-read-more {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.latest-read-more:hover { color: #fff; }
+
+.latest-items { display: flex; flex-direction: column; }
+.latest-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: padding-left 0.3s;
+  cursor: default;
+}
+.latest-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.latest-item:hover { padding-left: 8px; }
+.latest-item-title {
+  font-size: 14px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.45;
+}
+
+/* ── CTA ── */
+.cta-section { background: #f4f7fa; text-align: center; }
+.cta-inner { max-width: 520px; }
+.cta-title { font-size: clamp(1.8rem, 3vw, 2.4rem) !important; margin-bottom: 1rem; }
+.cta-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+/* ── FOOTER ── */
+.site-footer { background: #060f1a; padding: 2.5rem 0; }
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+}
+.footer-links { display: flex; gap: 1.75rem; }
+.footer-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.18);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .values-grid   { grid-template-columns: 1fr 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .latest-grid   { grid-template-columns: 1fr; }
+  .intro-strip   { grid-template-columns: 1fr; gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .values-grid  { grid-template-columns: 1fr; }
+  .hero-text    { left: 5%; right: 5%; bottom: 8%; }
+  .hero-actions { flex-direction: column; }
+}
