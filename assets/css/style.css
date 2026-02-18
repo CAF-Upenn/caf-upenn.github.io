@@ -770,3 +770,39 @@ body {
 .container {
   padding-top: 80px;
 }
+
+/* ── DROPDOWN ── */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #011F5B;
+  min-width: 160px;
+  padding: 8px 0;
+  z-index: 200;
+  border-top: 2px solid #990000;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+}
