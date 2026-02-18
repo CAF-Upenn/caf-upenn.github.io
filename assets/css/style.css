@@ -281,9 +281,9 @@ body {
 
 /* ── HERO: 50vh, shorter ── */
 .hero {
-  height: 50vh;
-  min-height: 340px;
-  margin-top: 61px; /* matches fixed header height */
+  height: 38vh;
+  min-height: 260px;
+  margin-top: 61px;
 }
 
 .hero-image {
