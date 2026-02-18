@@ -268,10 +268,13 @@ body {
 
 /* ── HERO SLIDESHOW ── */
 .hero {
+  position: relative;
   height: 70vh;
   min-height: 480px;
   margin-top: 0;
   padding-top: 0;
+  overflow: hidden;
+  padding-top: 84px; /* header 高度 */
 }
 
 /* slides: stacked, crossfade */
