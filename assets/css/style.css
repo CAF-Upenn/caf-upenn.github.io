@@ -229,7 +229,7 @@ body {
   top: 0; left: 0;
   width: 100%;
   z-index: 100;
-  background-color: #0b2a4a !important;
+  background-color: #011F5B;
   pointer-events: none;
   box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
@@ -386,12 +386,12 @@ body {
 .hero-btn:hover { transform: translateY(-2px); }
 
 .hero-btn--light   { background: #fff; color: #0b2a4a; }
-.hero-btn--light:hover { background: #e8f0f8; }
+.hero-btn--light:hover { background: #e8ecf5; }
 
 .hero-btn--outline { border: 1px solid rgba(255,255,255,0.45); color: #fff; }
 .hero-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
-.hero-btn--dark { background: #0b2a4a; color: #fff; }
+.hero-btn--dark { background: #011F5B; color: #fff; }
 .hero-btn--dark:hover { background: #0d3860; }
 
 /* slideshow dots */
@@ -421,7 +421,7 @@ body {
 
 /* ── INTRO STRIP ── */
 .intro-strip {
-  background: #0b2a4a;
+  background: #011F5B;
   padding: 3rem 6%;
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -459,7 +459,7 @@ body {
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #0b2a4a;
+  color: #011F5B;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -471,13 +471,14 @@ body {
   display: inline-block;
   width: 18px; height: 1px;
   background: currentColor;
+   color: #011F5B;
 }
 
 .home-title {
   font-family: 'Lora', Georgia, serif;
   font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   font-weight: 400;
-  color: #0b2a4a;
+  color: #011F5B;
   line-height: 1.2;
 }
 
@@ -513,7 +514,7 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 2px;
-  background: #0b2a4a;
+  background: #990000;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -563,7 +564,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: #0b2a4a;
+  background: #990000;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -584,7 +585,7 @@ body {
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.35;
-  color: #0b2a4a;
+  color: #011F5B;
   margin-bottom: 0.85rem;
 }
 .project-desc {
@@ -682,7 +683,7 @@ body {
 }
 
 /* ── FOOTER ── */
-.site-footer { background: #060f1a; padding: 2.5rem 0; }
+.site-footer { background: #011F5B; padding: 2.5rem 0; }
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
