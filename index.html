@@ -140,26 +140,6 @@
 
     .bio-close:hover { color: #011F5B; }
 
-    /* ── SECTION LABEL ── */
-    .team-section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #011F5B;
-      opacity: 0.5;
-      margin: 3rem 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .team-section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(1,31,91,0.12);
-    }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
@@ -192,9 +172,7 @@
   <main class="container">
     <h1 class="page-title">Meet the Lab</h1>
 
-    <!-- ── LEADERSHIP ── -->
-    <div class="team-section-label">Faculty &amp; Leadership</div>
-    <div class="team-grid" id="grid-leadership">
+    <div class="team-grid" id="grid-team">
 
       <div class="team-card" data-name="Jisung Park" data-role="Principal Investigator · SP2" data-img="assets/images/Jisung.jpg" data-bio="Placeholder bio for Jisung Park.">
         <img src="assets/images/Jisung.jpg" alt="Jisung Park" class="avatar" />
@@ -230,12 +208,6 @@
         <div class="card-role">Placeholder Role</div>
         <div class="card-arrow">▼</div>
       </div>
-
-    </div>
-
-    <!-- ── FELLOWS ── -->
-    <div class="team-section-label">Fellows</div>
-    <div class="team-grid" id="grid-fellows">
 
       <div class="team-card" data-name="Abishek Nippani" data-role="Doctoral Student · SP2" data-img="assets/images/Abishek.jpg" data-bio="Abishek is a first year doctoral student in the School of Social Policy and Practice. His research interests centre on urban poverty, with a particular focus on its linkage with rapid urbanisation and social disenfranchisement. Prior to joining SP2, he worked for four years as a research associate and coordinator in India on projects related to rural development, urban poverty, stigma, agency, community development and collective action. He holds a Master's in Public Policy from the National Law School of India University and a dual Bachelor's degree in Law and Business Administration from Alliance University.">
         <img src="assets/images/Abishek.jpg" alt="Abishek Nippani" class="avatar" />
@@ -390,14 +362,12 @@
         bioText.textContent = card.dataset.bio || 'Bio coming soon.';
 
         // move panel after clicked card's row
-        // figure out which row the card is in
         const cards = [...grid.querySelectorAll('.team-card')];
         const cols = getComputedColumns(grid);
         const idx = cards.indexOf(card);
         const rowEnd = Math.min(Math.ceil((idx + 1) / cols) * cols, cards.length);
         const afterCard = cards[rowEnd - 1];
 
-        // insert panel after that card (or append)
         if (afterCard && afterCard.nextSibling) {
           grid.insertBefore(panel, afterCard.nextSibling);
         } else {
@@ -410,7 +380,6 @@
         card.classList.add('active');
         activeCard = card;
 
-        // smooth scroll
         setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
       });
     });
