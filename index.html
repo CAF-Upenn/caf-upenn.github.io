@@ -10,15 +10,12 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-    /* ── GRID LAYOUT ── */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       margin-top: 2rem;
     }
-
-    /* ── CARD ── */
     .team-card {
       cursor: pointer;
       text-align: center;
@@ -36,7 +33,6 @@
       border-color: #011F5B;
       box-shadow: 0 6px 24px rgba(1,31,91,0.15);
     }
-
     .team-card .avatar {
       width: 100px;
       height: 100px;
@@ -51,7 +47,6 @@
     .team-card.active .avatar {
       border-color: #011F5B;
     }
-
     .team-card .card-name {
       font-family: 'Lora', serif;
       font-size: 0.95rem;
@@ -60,7 +55,6 @@
       margin-bottom: 0.25rem;
       line-height: 1.3;
     }
-
     .team-card .card-role {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem;
@@ -68,8 +62,6 @@
       text-transform: uppercase;
       color: #888;
     }
-
-    /* small arrow indicator */
     .card-arrow {
       display: inline-block;
       margin-top: 0.75rem;
@@ -81,29 +73,26 @@
     .team-card:hover .card-arrow { opacity: 0.5; }
     .team-card.active .card-arrow { opacity: 1; }
 
-    /* ── BIO PANEL ── */
     .bio-panel {
       display: none;
-      grid-column: 1 / -1; /* span full width */
+      grid-column: 1 / -1;
       background: #f4f7fa;
       border-left: 3px solid #011F5B;
       padding: 2rem 2.5rem;
       animation: slideDown 0.3s ease;
+      position: relative;
     }
     .bio-panel.visible { display: block; }
-
     @keyframes slideDown {
       from { opacity: 0; transform: translateY(-8px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .bio-panel-inner {
       display: flex;
       gap: 2rem;
       align-items: flex-start;
       max-width: 800px;
     }
-
     .bio-panel img {
       width: 80px;
       height: 80px;
@@ -112,7 +101,6 @@
       flex-shrink: 0;
       border: 2px solid #011F5B;
     }
-
     .bio-panel-text h3 {
       font-family: 'Lora', serif;
       font-size: 1.2rem;
@@ -120,7 +108,6 @@
       color: #011F5B;
       margin-bottom: 0.3rem;
     }
-
     .bio-panel-text .bio-role {
       font-family: 'DM Mono', monospace;
       font-size: 0.65rem;
@@ -129,7 +116,6 @@
       color: #888;
       margin-bottom: 0.9rem;
     }
-
     .bio-panel-text p {
       font-size: 14px;
       line-height: 1.75;
@@ -137,15 +123,31 @@
       font-weight: 300;
     }
 
+    .team-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #011F5B;
+      opacity: 0.5;
+      margin: 3rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .team-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(1,31,91,0.12);
+    }
 
-    .bio-close:hover { color: #011F5B; }
-
-    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .container {
-        padding-top: 15px;
-      }
+      .container { padding-top: 15px; }
     }
   </style>
 </head>
@@ -172,9 +174,11 @@
   <main class="container">
     <h1 class="page-title">Meet the Lab</h1>
 
-    <div class="team-grid" id="grid-team">
+    <!-- ── FACULTY & LEADERSHIP ── -->
+    <div class="team-section-label">Faculty &amp; Leadership</div>
+    <div class="team-grid" id="grid-faculty">
 
-      <div class="team-card" data-name="Jisung Park" data-role="Principal Investigator · SP2" data-img="assets/images/Jisung.jpg" data-bio="Placeholder bio for Jisung Park.">
+      <div class="team-card" data-name="Jisung Park" data-role="Principal Investigator · SP2 · Wharton" data-img="assets/images/Jisung.jpg" data-bio="Placeholder bio for Jisung Park.">
         <img src="assets/images/Jisung.jpg" alt="Jisung Park" class="avatar" />
         <div class="card-name">Jisung Park, PhD</div>
         <div class="card-role">Principal Investigator · SP2 · Wharton</div>
@@ -209,6 +213,39 @@
         <div class="card-arrow">▼</div>
       </div>
 
+    </div>
+
+    <!-- ── POSTDOCTORAL FELLOWS ── -->
+    <div class="team-section-label">Postdoctoral Fellows</div>
+    <div class="team-grid" id="grid-postdoc">
+
+      <div class="team-card" data-name="Angelo dos Santos" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Angelo.jpg" data-bio="I am a Postdoctoral Fellow at the University of Pennsylvania and Scientific Production Coordinator for the DZC project. I am an applied microeconomist working on development and environmental economics. I received my PhD from the University of Houston. My research addresses critical issues such as deforestation and air pollution, aiming to develop effective policies to mitigate these challenges. I am a nature enthusiast and soccer lover.">
+        <img src="assets/images/Angelo.jpg" alt="Angelo dos Santos" class="avatar" />
+        <div class="card-name">Angelo dos Santos, PhD</div>
+        <div class="card-role">Postdoctoral Fellow · Penn</div>
+        <div class="card-arrow">▼</div>
+      </div>
+
+      <div class="team-card" data-name="Yabo Vidogbena" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Yabo.JPG" data-bio="Yabo is a development economist interested in human capital formation and structural change in developing countries. In her recent research she investigated how climate change affects human capital formation, specifically how heat impacts the learning and executive functioning of children, and the role of trade in structural change in Sub Saharan African countries. She is a Postdoctoral Fellow at the Population Studies Center and an instructor at the Economics department of the University of Pennsylvania. She obtained her Ph.D. in Economics from the University of Houston in May 2025.">
+        <img src="assets/images/Yabo.JPG" alt="Yabo Vidogbena" class="avatar" />
+        <div class="card-name">Yabo Vidogbena, PhD</div>
+        <div class="card-role">Postdoctoral Fellow · Penn</div>
+        <div class="card-arrow">▼</div>
+      </div>
+
+      <div class="team-card" data-name="Yujie Zhang" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Yujie.jpg" data-bio="Yujie Zhang is a Postdoctoral Research Fellow at the Population Studies Center at the University of Pennsylvania. She received her Ph.D. in Economics from the University of Houston in summer 2025. Her research interests lie in the fields of Development Economics, using Applied Microeconomics to explore the intersections between climate change, human capital, and social inequality through transnational comparative studies and large-scale data analysis. Her recent paper investigates the long-term effects of natural disasters on education, health, and labor outcomes, highlighting disparities by gender and socio-economic status.">
+        <img src="assets/images/Yujie.jpg" alt="Yujie Zhang" class="avatar" />
+        <div class="card-name">Yujie Zhang, PhD</div>
+        <div class="card-role">Postdoctoral Fellow · Penn</div>
+        <div class="card-arrow">▼</div>
+      </div>
+
+    </div>
+
+    <!-- ── STUDENT FELLOWS ── -->
+    <div class="team-section-label">Student Fellows</div>
+    <div class="team-grid" id="grid-students">
+
       <div class="team-card" data-name="Abishek Nippani" data-role="Doctoral Student · SP2" data-img="assets/images/Abishek.jpg" data-bio="Abishek is a first year doctoral student in the School of Social Policy and Practice. His research interests centre on urban poverty, with a particular focus on its linkage with rapid urbanisation and social disenfranchisement. Prior to joining SP2, he worked for four years as a research associate and coordinator in India on projects related to rural development, urban poverty, stigma, agency, community development and collective action. He holds a Master's in Public Policy from the National Law School of India University and a dual Bachelor's degree in Law and Business Administration from Alliance University.">
         <img src="assets/images/Abishek.jpg" alt="Abishek Nippani" class="avatar" />
         <div class="card-name">Abishek Nippani</div>
@@ -220,13 +257,6 @@
         <img src="assets/images/Angel.JPG" alt="Angel Bao" class="avatar" />
         <div class="card-name">Angel Bao</div>
         <div class="card-role">Graduate Student · SP2</div>
-        <div class="card-arrow">▼</div>
-      </div>
-
-      <div class="team-card" data-name="Angelo dos Santos" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Angelo.jpg" data-bio="I am a Postdoctoral Fellow at the University of Pennsylvania and Scientific Production Coordinator for the DZC project. I am an applied microeconomist working on development and environmental economics. I received my PhD from the University of Houston. My research addresses critical issues such as deforestation and air pollution, aiming to develop effective policies to mitigate these challenges. I am a nature enthusiast and soccer lover.">
-        <img src="assets/images/Angelo.jpg" alt="Angelo dos Santos" class="avatar" />
-        <div class="card-name">Angelo dos Santos, PhD</div>
-        <div class="card-role">Postdoctoral Fellow · Penn</div>
         <div class="card-arrow">▼</div>
       </div>
 
@@ -300,23 +330,9 @@
         <div class="card-arrow">▼</div>
       </div>
 
-      <div class="team-card" data-name="Yabo Vidogbena" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Yabo.JPG" data-bio="Yabo is a development economist interested in human capital formation and structural change in developing countries. In her recent research she investigated how climate change affects human capital formation, specifically how heat impacts the learning and executive functioning of children, and the role of trade in structural change in Sub Saharan African countries. She is a Postdoctoral Fellow at the Population Studies Center and an instructor at the Economics department of the University of Pennsylvania. She obtained her Ph.D. in Economics from the University of Houston in May 2025.">
-        <img src="assets/images/Yabo.JPG" alt="Yabo Vidogbena" class="avatar" />
-        <div class="card-name">Yabo Vidogbena, PhD</div>
-        <div class="card-role">Postdoctoral Fellow · Penn</div>
-        <div class="card-arrow">▼</div>
-      </div>
-
-      <div class="team-card" data-name="Yujie Zhang" data-role="Postdoctoral Fellow · Penn" data-img="assets/images/Yujie.jpg" data-bio="Yujie Zhang is a Postdoctoral Research Fellow at the Population Studies Center at the University of Pennsylvania. She received her Ph.D. in Economics from the University of Houston in summer 2025. Her research interests lie in the fields of Development Economics, using Applied Microeconomics to explore the intersections between climate change, human capital, and social inequality through transnational comparative studies and large-scale data analysis. Her recent paper investigates the long-term effects of natural disasters on education, health, and labor outcomes, highlighting disparities by gender and socio-economic status.">
-        <img src="assets/images/Yujie.jpg" alt="Yujie Zhang" class="avatar" />
-        <div class="card-name">Yujie Zhang, PhD</div>
-        <div class="card-role">Postdoctoral Fellow · Penn</div>
-        <div class="card-arrow">▼</div>
-      </div>
-
     </div>
 
-    <!-- hidden bio panel, moved into grid by JS -->
+    <!-- hidden bio panel -->
     <div class="bio-panel" id="bio-panel">
       <div class="bio-panel-inner">
         <img id="bio-img" src="" alt="" />
@@ -336,7 +352,6 @@
     const bioName = document.getElementById('bio-name');
     const bioRole = document.getElementById('bio-role');
     const bioText = document.getElementById('bio-text');
-    const bioClose = document.getElementById('bio-close');
 
     let activeCard = null;
 
@@ -344,24 +359,21 @@
       card.addEventListener('click', () => {
         const grid = card.closest('.team-grid');
 
-        // clicking same card = close
         if (activeCard === card) {
           closePanel();
           return;
         }
 
-        // populate panel
-        bioImg.src  = card.dataset.img;
-        bioImg.alt  = card.dataset.name;
-        bioImg.style.objectPosition = card.dataset.name === 'Lindsay Park' ? 'center 10%' 
-          : card.dataset.name === 'Husel Husile' ? 'center 45%' 
+        bioImg.src = card.dataset.img;
+        bioImg.alt = card.dataset.name;
+        bioImg.style.objectPosition = card.dataset.name === 'Lindsay Park' ? 'center 10%'
+          : card.dataset.name === 'Husel Husile' ? 'center 45%'
           : card.dataset.name === 'Nazar Khalid' ? 'center 45%'
           : 'center center';
         bioName.textContent = card.dataset.name;
         bioRole.textContent = card.dataset.role;
         bioText.textContent = card.dataset.bio || 'Bio coming soon.';
 
-        // move panel after clicked card's row
         const cards = [...grid.querySelectorAll('.team-card')];
         const cols = getComputedColumns(grid);
         const idx = cards.indexOf(card);
@@ -374,7 +386,6 @@
           grid.appendChild(panel);
         }
 
-        // show
         panel.classList.add('visible');
         if (activeCard) activeCard.classList.remove('active');
         card.classList.add('active');
@@ -383,8 +394,6 @@
         setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
       });
     });
-
-    bioClose.addEventListener('click', closePanel);
 
     function closePanel() {
       panel.classList.remove('visible');
@@ -398,7 +407,6 @@
     }
   </script>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">Climate Adaptation Fellows</div>
