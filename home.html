@@ -8,16 +8,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* ── MEETING SCHEDULE ── */
+    .schedule-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      margin-top: 1.5rem;
+      transition: border-color 0.2s, color 0.2s;
+      background: none;
+      user-select: none;
+    }
+    .schedule-toggle:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .schedule-toggle .arrow {
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    .schedule-toggle.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .schedule-table-wrap {
+      display: none;
+      margin-top: 1.25rem;
+      overflow-x: auto;
+    }
+    .schedule-table-wrap.visible {
+      display: block;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .schedule-table th {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 6px 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .schedule-table td {
+      padding: 10px 12px;
+      color: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.4;
+      vertical-align: top;
+    }
+    .schedule-table tr:last-child td {
+      border-bottom: none;
+    }
+    .schedule-table tr.no-session td {
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+    }
+    .schedule-table td:first-child {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.45);
+    }
+    .session-type {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- HEADER -->
-    <header class="site-header">
+  <header class="site-header">
     <div class="header-inner">
       <div class="lab-title">Climate Adaptation Fellowship (CAF)</div>
       <nav class="nav">
         <a href="home.html" class="nav-link active">Home</a>
-        <!-- About Us with dropdown -->
         <div class="nav-dropdown">
           <a href="about.html" class="nav-link">About Us</a>
           <div class="dropdown-menu">
@@ -47,7 +134,6 @@
         <a href="projects.html" class="hero-btn hero-btn--outline">Our Research →</a>
       </div>
     </div>
-    <!-- dots -->
     <div class="slide-dots">
       <span class="dot active" onclick="goToSlide(0)"></span>
       <span class="dot" onclick="goToSlide(1)"></span>
@@ -66,40 +152,6 @@
       <strong>adapt</strong> to the climate shocks already underway.
     </p>
   </div>
-
-  <!-- OUR VALUES -->
-  <section class="home-section values-section">
-    <div class="home-section-inner">
-      <div class="home-section-header">
-        <div>
-          <p class="home-tag">Our Values</p>
-          <h2 class="home-title">What guides our work</h2>
-        </div>
-      </div>
-      <div class="values-grid">
-        <div class="value-card reveal">
-          <div class="value-num">01</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">02</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">03</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="value-card reveal">
-          <div class="value-num">04</div>
-          <h3 class="value-name">Example Value</h3>
-          <p class="value-desc">Example description text. Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- OUR PROJECTS -->
   <section class="home-section projects-section">
@@ -151,15 +203,87 @@
           <p class="home-tag latest-tag">The Latest</p>
           <h2 class="home-title latest-title">News &amp; Updates</h2>
         </div>
-        <a href="about.html" class="home-section-link latest-link">See all →</a>
       </div>
       <div class="latest-grid">
         <div class="latest-featured reveal">
-          <p class="latest-date">2025 · Example</p>
-          <h3 class="latest-featured-title">Example featured news headline goes here</h3>
-          <p class="latest-featured-body">Example body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <a href="#" class="latest-read-more">Read more →</a>
+          <p class="latest-date">Spring 2025 · Weekly Meetings</p>
+          <h3 class="latest-featured-title">CAF Weekly Seminar — Mondays 1–2pm, GSE 427</h3>
+          <p class="latest-featured-body">
+            Our weekly seminar brings together fellows for project presentations, paper reviews, and thematic discussions on climate adaptation research. All sessions held Mondays 1:00–2:00pm in GSE 427.
+          </p>
+          <button class="schedule-toggle" id="scheduleToggle">
+            View Schedule <span class="arrow">▼</span>
+          </button>
+          <div class="schedule-table-wrap" id="scheduleTable">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Topic / Presenter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Feb 9 · Wk 5</td>
+                  <td><span class="session-type">Discussion</span></td>
+                  <td>Human Capital &amp; Labor: The micro-foundations of adaptation.</td>
+                </tr>
+                <tr>
+                  <td>Feb 16 · Wk 6</td>
+                  <td><span class="session-type">Project Pres.</span></td>
+                  <td>Chris Wodicka</td>
+                </tr>
+                <tr>
+                  <td>Feb 23 · Wk 7</td>
+                  <td><span class="session-type">Project Pres.</span></td>
+                  <td>Hwiyoung Lee</td>
+                </tr>
+                <tr>
+                  <td>Mar 2 · Wk 8</td>
+                  <td><span class="session-type">Project Pres.</span></td>
+                  <td>Nodi Oindriza</td>
+                </tr>
+                <tr class="no-session">
+                  <td>Mar 9</td>
+                  <td><span class="session-type">—</span></td>
+                  <td>No Session · Spring Break</td>
+                </tr>
+                <tr>
+                  <td>Mar 16 · Wk 10</td>
+                  <td><span class="session-type">Project Pres.</span></td>
+                  <td>Vincent Bio Bediako</td>
+                </tr>
+                <tr>
+                  <td>Mar 23 · Wk 11</td>
+                  <td><span class="session-type">Methodology</span></td>
+                  <td>Lindsay Park &amp; Ellery Spikes — Datasets &amp; Toolkits</td>
+                </tr>
+                <tr>
+                  <td>Mar 30 · Wk 12</td>
+                  <td><span class="session-type">Paper Review</span></td>
+                  <td>Paul Stainier</td>
+                </tr>
+                <tr>
+                  <td>Apr 6 · Wk 13</td>
+                  <td><span class="session-type">Project Pres.</span></td>
+                  <td>Sebastian Prandoni</td>
+                </tr>
+                <tr>
+                  <td>Apr 13 · Wk 14</td>
+                  <td><span class="session-type">Project Pres.</span></td>
+                  <td>Tingting Rui</td>
+                </tr>
+                <tr>
+                  <td>Apr 20 · Wk 15</td>
+                  <td><span class="session-type">Discussion</span></td>
+                  <td>Climate Finance &amp; Policy: AI, resource competition, sacrifice zones, and equitable adaptation.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+
         <div class="latest-items reveal">
           <div class="latest-item">
             <p class="latest-date">Example Date</p>
@@ -199,7 +323,8 @@
       <div class="footer-links">
         <a href="home.html">Home</a>
         <a href="about.html">About</a>
-        <a href="index.html">Team</a>
+        <a href="projects.html">Our Projects</a>
+        <a href="index.html">Meet the Lab</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer-copy">© 2026 · University of Pennsylvania SP2 · CCAR</div>
@@ -219,11 +344,15 @@
       slides[current].classList.add('active');
       dots[current].classList.add('active');
     }
+    setInterval(() => { goToSlide((current + 1) % slides.length); }, 5000);
 
-    // Auto-advance every 5s
-    setInterval(() => {
-      goToSlide((current + 1) % slides.length);
-    }, 5000);
+    // ── Schedule toggle ──
+    const toggleBtn = document.getElementById('scheduleToggle');
+    const tableWrap = document.getElementById('scheduleTable');
+    toggleBtn.addEventListener('click', () => {
+      tableWrap.classList.toggle('visible');
+      toggleBtn.classList.toggle('open');
+    });
 
     // ── Scroll reveal ──
     const revealEls = document.querySelectorAll('.reveal');
